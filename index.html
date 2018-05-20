@@ -243,8 +243,10 @@
 
     // Create Legend Contents in html format
     var county_legend = '<i style="background: orange; opacity: 0.5"></i><p><b>Counties</b></p>';
-    var forest_legend = '<i style="background: green; opacity: 0.5"></i><p><b>Forest</b></p>';
+    var forest_legend = '<i style="background: green; opacity: 0.5"></i><p><b>Counties</b></p>';
 
+    //["#440154","#45327f", "#365c8d", "#277f8e", "#1fa288", "#4ac26d", "9eda39"]; ' +
+    //["Poplar", "Aspen", "Subalpine Fir", "Larch", "Lodgepole Pine", "White Spruce", "Spruce Hybrid"]
     // For each layer, the first variable is the layer, the second is the legend. The layer variable can be any kinds of layers that leaflet.js supports.
     // var layers = {
     //      layer1: {layer: layer1, legend: legend1},
@@ -270,12 +272,15 @@
                 id: 'mapbox.satellite'
             })
         },
+        VIR: {
+          layer: L.tileLayer('assets/tiles/{z}/{x}/{y}.png')
+        },
         cartodb_light: {layer: L.tileLayer('http://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png')}
     };
 
     var scenes = {
         overview: {lat: 53.248971, lng: -125.644940, zoom: 7, name: 'Cover Page', layers: []},
-        outbreak: {lat: 53.248971, lng: -125.644940, zoom: 8, name: 'Beetle Outbreak', layers: []},
+        outbreak: {lat: 53.273888, lng: -126.114708,  zoom: 11, name: 'Beetle Outbreak', layers: [layers.VIR]},
         wilfire: {lat: 53.248971, lng: -125.644940, zoom: 8, name: 'Wildfire', layers: [layers.ESRI]},
         regeneration: {lat: 53.248971, lng: -125.644940, zoom: 8, name: 'Forest Regeneration', layers: []},
         end: {lat: 53.248971, lng: -125.644940, zoom: 7, name: 'The End'}
