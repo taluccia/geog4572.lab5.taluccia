@@ -54,7 +54,7 @@
             <section data-scene="overview" data-background="images/IMG_0850.JPG">
                 <div class="fullscreen text-center">
 
-                    <h1 class="display-4 d-flex justify-content-center">Small pests and wildfire!</h1>
+                    <h1 class="display-4 d-flex justify-content-center">Small pests and big wildfire!</h1>
 
 
                     <small class="d-flex justify-content-center" style="color: rgba(255,255,255,0.95)">This story map
@@ -62,6 +62,18 @@
                     </small>
                 </div>
             </section>
+
+            <section data-scene="lodgepole">
+                <h2>Lodgpole Pine Forests</h2>
+                <p>Lodgepole pine is a dominant canopy tree species in forest across central interior British Columbia.
+                    It is accustom to large scale disturbance events from mountain pine beetle outbreaks and wildfire.
+                    Beetle outbreaks have been known to occur multiple times throughout the last centrury, while wildfire
+                    return is 100-150 years in the region. Wildfire is an important mechanism for lodgepole pine
+                    regeneration. Lodgepole pine produce serotinous cones that retain seed past maturity awaiting an
+                    environmental cue, in the is case heat from fire, which melts the resinous bond and releases the
+                    seeds for germination.  </p>
+            </section>
+
             <section data-scene="outbreak">
                 <h2>Beetle Outbreak</h2>
                 <p>Mountain pine beetles are a natural part of forest ecosystems in western North America. Lodgepole
@@ -82,25 +94,8 @@
 
             <section data-scene="wildfire">
                 <h2>Wildfire</h2>
-                <p>Corvallis is a city in central western Oregon, United States. It is the county seat of Benton County
-                    and the principal city of the Corvallis, Oregon Metropolitan Statistical Area, which encompasses all
-                    of Benton County. As of the 2010 United States Census, the population was 54,462. Its population was
-                    estimated by the Portland Research Center to be 55,298 in 2013.Corvallis is the location of Oregon
-                    State University, a large Hewlett-Packard research campus, and Good Samaritan Regional Medical
-                    Center.</p>
-                <p>In October 1845, Joseph C. Avery arrived in Oregon from the east. Avery took out a land claim at the
-                    mouth of Marys River where it flows into the Willamette River and in June 1846 took up residence
-                    there in a log cabin hastily constructed to hold what seemed a potentially lucrative claim. Avery's
-                    primitive 1846 dwelling was the first home within the boundaries of today's Corvallis and his land
-                    claim included the southern section of the contemporary city.</p>
-                <p>Corvallis is the largest principal city of the Albany-Corvallis-Lebanon CSA, a Combined Statistical
-                    Area that includes the Corvallis metropolitan area (Benton County) and the Albany-Lebanon
-                    micropolitan area (Linn County),which had a combined population of 202,251 at the 2010 U.S. Census.
-                    As of the 2000 U.S. Census the median income for a household in the city was $35,437, and the median
-                    income for a family was $53,208. Males had a median income of $40,770 versus $29,390 for females.
-                    The per capita income for the city was $19,317. About 9.7% of families and 20.6% of the population
-                    were below the poverty line, including 15.2% of those under age 18 and 6.0% of those age 65 or
-                    over.</p>
+                <p>Widlfire burns differently as it burns through dead forests. Wildfrie consumes more wood on dead
+                    snags as it moves through the forests. </p>
             </section>
 
             <section data-scene="regeneration">
@@ -121,25 +116,7 @@
                     Championships.</p>
             </section>
 
-            <section data-scene="salem">
-                <h2>Salem</h2>
-                <p>Salem is the capital of the U.S. state of Oregon, and the county seat of Marion County. It is located
-                    in the center of the Willamette Valley alongside the Willamette River, which runs north through the
-                    city. The river forms the boundary between Marion and Polk counties, and the city neighborhood of
-                    West Salem is in Polk County. Salem was founded in 1842, became the capital of the Oregon Territory
-                    in 1851, and was incorporated in 1857.</p>
-                <p>Salem had a population of 154,637 at the 2010 census, making it the third largest city in the state
-                    after Portland and Eugene. Salem is less than an hour driving distance away from Portland. Salem is
-                    the principal city of the Salem Metropolitan Statistical Area, a metropolitan area that covers
-                    Marion and Polk counties and had a combined population of 390,738 at the 2010 census. A 2013
-                    estimate placed the metropolitan population at 400,408, the state's second largest.</p>
-                <p>The city is home to Willamette University, Corban University, and Chemeketa Community College. The
-                    State of Oregon is the largest public employer in the city, and Salem Health is the largest private
-                    employer. Transportation includes public transit from Salem-Keizer Transit, Amtrak service, and
-                    non-commercial air travel at McNary Field. Major roads include Interstate 5, Oregon Route 99E, and
-                    Oregon Route 22, which connects West Salem across the Willamette River via the Marion Street and
-                    Center Street bridges.</p>
-            </section>
+
             <section data-scene="bend">
                 <h2>Bend</h2>
                 <p>Bend is a city in, and the county seat of Deschutes County, Oregon, United States. It is the
@@ -263,8 +240,8 @@
                 opacity: 0.3
             }), legend: county_legend
         },
-        GEE: {
-            layer: L.tileLayer('assets/tiles/{z}/{x}/{y}.png'),
+        VIR: {
+            layer: L.tileLayer('assets/tilesvir/{z}/{x}/{y}.png'),
             legend: forest_legend
         },
         satellite: {
@@ -272,16 +249,17 @@
                 id: 'mapbox.satellite'
             })
         },
-        VIR: {
-          layer: L.tileLayer('assets/tiles/{z}/{x}/{y}.png')
+        Burn: {
+            layer: L.tileLayer('assets/tilesburn/{z}/{x}/{y}.png')
         },
         cartodb_light: {layer: L.tileLayer('http://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png')}
     };
 
     var scenes = {
         overview: {lat: 53.248971, lng: -125.644940, zoom: 7, name: 'Cover Page', layers: []},
+        lodgepole: {lat: 53.267859, lng: -126.140204,  zoom: 13, name: 'Lodgepole Pine Forests', layers: [layers.VIR]},
         outbreak: {lat: 53.273888, lng: -126.114708,  zoom: 11, name: 'Beetle Outbreak', layers: [layers.VIR]},
-        wilfire: {lat: 53.248971, lng: -125.644940, zoom: 8, name: 'Wildfire', layers: [layers.ESRI]},
+        wildfire: {lat: 53.267859, lng: -126.140204, zoom: 12, name: 'Wildfire', layers: [layers.Burn]},
         regeneration: {lat: 53.248971, lng: -125.644940, zoom: 8, name: 'Forest Regeneration', layers: []},
         end: {lat: 53.248971, lng: -125.644940, zoom: 7, name: 'The End'}
     };
