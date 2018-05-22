@@ -72,7 +72,7 @@
 
 
 
-# Deliverables
+# Requirements
 
 * Five Action story telling structure
 * Five Scenes: Lodgepole pine, Beetle Outbreak, Fuels, Wildfire, Regeneration 
