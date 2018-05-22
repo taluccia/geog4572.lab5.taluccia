@@ -4,7 +4,7 @@
 
 ## Storyline: Sleeping Beauty Version
 
-###Overview: Lodgepole pine forests
+### Overview: Lodgepole pine forests
 
 * Once their were many mature lodgepole pine trees in the forests.
 
