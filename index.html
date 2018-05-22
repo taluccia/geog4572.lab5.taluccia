@@ -57,15 +57,16 @@
                     <h1 class="display-4 d-flex justify-content-center">Small pests and big wildfire!</h1>
 
 
-                    <small class="d-flex justify-content-center" style="color: rgba(255,255,255,0.95)">This story map
+                    <medium class="d-flex justify-content-center" style="color: rgba(255,255,255,0.95)">This story map
                         illustrates the life cycles of central interior British Columbian forests
-                        - insect attack, tree death, recovery, widlfire, and regeneration.
-                    </small>
+                        - lodgepole pine, insect attack, tree death, altered structure, wildfire, & regeneration.
+                    </medium>
                 </div>
             </section>
 
             <section data-scene="lodgepole">
                 <h2>Overview: Lodgpole Pine Forests</h2>
+                <h5>Once their were many mature lodgepole pine trees in the forests. </h5>
                 <p>Forest across central interior British Columbia are dominated by Lodgepole pine. Forests
                     are an integral part of the landscape and provide wildlife habitat, ecosystem services such as
                     carbon storage, economic value in the form of timber harvest and recreation, and intrinsic value.
@@ -84,6 +85,9 @@
 
             <section data-scene="outbreak">
                 <h2>Beetle Outbreak</h2>
+                <h5>The populations of beetles that lived in the forest grew because they are able to survive the warmer
+                    winters and an abundance lodgepole pines trees for them to host on. They attacked more lodgepole pine
+                    trees then ever before, which killed much of the forest. </h5>
                 <p>Mountain pine beetles are a natural part of forest ecosystems in western North America. Lodgepole
                     pine trees are the primary host for mountain pine beetles. Warmer winters and and abundance of
                     mature lodgepole pine trees have created ideal conditions for the eruption in beetle populations
@@ -102,6 +106,8 @@
 
             <section data-scene="fuels">
                 <h2>Fuels for wildfire</h2>
+                <h5>The forest became a tinder box of standing dead trees that continued to hold their seeds and
+                    prevented the forest from regenerating.</h5>
                 <p> The post-mortem decay phase from beetle outbreak change the fuel structure in forests. The
                     transition from live to dead forests results in fuels with lower moisture levels and is
                     the largest change. The shift from live to dead also redistributes fuels. For example, needles and
@@ -118,6 +124,7 @@
 
             <section data-scene="wildfire">
                 <h2>Wildfire</h2>
+                <h5>Then wildfire came along and burned parts of the landscape of dead lodgepole pine. This released the seeds being held.</h5>
                 <p> Wildfire occurs on the landscape when the conditions are beneficial for ignition and spread.
                     These conditions often occur mid to late summer during drier, windier periods. </p>
                 <p>Wildfire is a key disturbance mechanism in these forests that leads to rejuvenation, succession, and
@@ -125,13 +132,15 @@
                     an influx of nutrients and facilitates seed release for grasses, herbaceous plants, shrubs, and
                     lodgepole pine. </p>
                 <p>This burn severity map shows a post fire mosaic for a fire that burned 2013. Large areas of high
-                    severity fire in red cover large portions of the mosaic</p>
+                    severity fire in red cover large portions of the mosaic.</p>
             </section>
 
 
 
             <section data-scene="regeneration">
                 <h2>Forest Regeneration</h2>
+                <h5>In many areas, lodgepole pine came back, but in some cases the combination of the dead trees from the
+                    beetle attack and fire killed the seeds and lodgepole did not return. </h5>
                 <p>Regeneration is critical to forest recovery. The extent and magnitude of both beetle outbreak and
                     wildfire creates variability in seed availability and regeneration response for lodgepole pine.
                     The variability creates a diverse mosaic across the landscape that includes everything from high
@@ -142,7 +151,7 @@
                 <p>Postfire early successional habitat often attracts species like the black backed woodpecker that feeds
                     on post fire insect activity. Hummingbirds enjoy the abundance of fireweed and other flowing plants.
                     For some species, like Geranium bicknellii, postfire facilitates their germination after a century
-                    of dormancy</p>
+                    of dormancy. </p>
                 <p> Wildfire is a key mechanism for lodgepole pine regeneration. Lodgepole pine produce
                     serotinous cones that retain seeds past maturity awaiting an environmental cue, in this case heat
                     from fire, which melts the resinous bond and releases the seeds for germination. Fire also clears
@@ -154,8 +163,11 @@
             <section data-scene="end" data-background="assets/fieldphotos_video.mp4">
                 <div class="fullscreen text-center">
                     <h1 class="display-4 d-flex justify-content-center">Thanks for watching!!!</h1>
-                    <small class="d-flex justify-content-center" style="color: rgba(255,255,255,0.95)">Big
+                    <medium class="d-flex justify-content-center" style="color: rgba(255,255,255,0.95)">Big
                         thanks to all those that helped with this project.
+                    </medium>
+                    <small class="d-flex justify-content-center" style="color: rgba(255,255,255,0.95)">This is a small
+                        portion of a dissertation that has been supported by many folks.
                     </small>
                 </div>
             </section>
@@ -220,14 +232,6 @@
     var beetle_legend = '<i style="background: orange; opacity: 0.5"></i><p><b>Beetle-Outbreak</b></p>';
     //var forest_legend = '<i style="background: green; opacity: 0.5"></i><p><b>Counties</b></p>';
 
-    //["#440154","#45327f", "#365c8d", "#277f8e", "#1fa288", "#4ac26d", "9eda39"]; ' +
-    //["Poplar", "Aspen", "Subalpine Fir", "Larch", "Lodgepole Pine", "White Spruce", "Spruce Hybrid"]
-    // For each layer, the first variable is the layer, the second is the legend. The layer variable can be any kinds of layers that leaflet.js supports.
-    // var layers = {
-    //      layer1: {layer: layer1, legend: legend1},
-    //      layer2: {layer: layer2, legend: legend2}
-    //      ...
-    // }
 
     var layers = {
         ESRI: {layer: L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}')},
@@ -255,6 +259,7 @@
         overview: {lat: 53.248971, lng: -125.644940, zoom: 7, name: 'Cover Page', layers: []},
         lodgepole: {lat: 53.267859, lng: -126.140204,  zoom: 13, name: 'Lodgepole Pine Forests', layers: [layers.VIR]},
         outbreak: {lat: 53.269461, lng: -125.863468, zoom: 10, name: 'Beetle Outbreak', layers: [layers.beetle]},
+        fuels: {lat: 53.269461, lng: -125.863468, zoom: 9, name: 'Beetle Outbreak', layers: [layers.beetle]},
         wildfire: {lat: 53.267859, lng: -126.140204, zoom: 12, name: 'Wildfire', layers: [layers.burn]},
         regeneration: {lat: 53.248971, lng: -125.644940, zoom: 8, name: 'Forest Regeneration', layers: [layers.ESRI]},
         end: {lat: 53.248971, lng: -125.644940, zoom: 7, name: 'The End', layers: [layers.ESRI]}
